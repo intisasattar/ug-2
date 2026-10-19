@@ -1,0 +1,157 @@
+.steps {
+  --progress: 1;
+  position: relative;
+  list-style: none;
+  display: grid;
+  gap: var(--space-7);
+  padding-left: 2.25rem;
+}
+:global(.js-motion) .steps {
+  --progress: 0;
+}
+
+/* Vertical track (mobile + vertical layout) */
+.track {
+  position: absolute;
+  left: 5px;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1px;
+  background: var(--border-dark);
+}
+:global(.bg-porcelain) .track,
+:global(.bg-white) .track,
+:global(.bg-mist) .track {
+  background: var(--border-strong);
+}
+.fill {
+  position: absolute;
+  inset: 0;
+  background: var(--color-mineral);
+  transform-origin: top;
+  transform: scaleY(var(--progress));
+  transition: transform 160ms linear;
+}
+:global(.bg-porcelain) .fill,
+:global(.bg-white) .fill,
+:global(.bg-mist) .fill {
+  background: var(--color-cobalt);
+}
+
+.step {
+  position: relative;
+}
+.marker {
+  position: absolute;
+  left: calc(-2.25rem);
+  top: 0.35rem;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 1px solid var(--color-mineral);
+  background: var(--color-navy);
+  display: grid;
+  place-items: center;
+  transition: background-color var(--dur-base) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+}
+:global(.bg-porcelain) .marker,
+:global(.bg-white) .marker,
+:global(.bg-mist) .marker {
+  border-color: var(--color-cobalt);
+  background: var(--color-porcelain);
+}
+.dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: transparent;
+  transition: background-color var(--dur-base) var(--ease-out);
+}
+
+.num {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 2rem + 2vw, 3.5rem);
+  line-height: 1;
+  color: rgba(168, 184, 212, 0.4);
+  margin-bottom: var(--space-4);
+  font-variant-numeric: oldstyle-nums;
+  transition: color var(--dur-slow) var(--ease-out);
+}
+:global(.bg-porcelain) .num,
+:global(.bg-white) .num,
+:global(.bg-mist) .num {
+  color: var(--color-mineral);
+}
+.title {
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-3);
+}
+.body {
+  color: var(--text-on-dark-muted);
+  max-width: 44ch;
+}
+:global(.bg-porcelain) .body,
+:global(.bg-white) .body,
+:global(.bg-mist) .body {
+  color: var(--text-muted);
+}
+.detail {
+  margin-top: var(--space-5);
+  font-size: 0.97rem;
+  max-width: 60ch;
+}
+
+/* Active states (also the default without JS / reduced motion) */
+.step:global(.is-active) .num,
+:global(html:not(.js-motion)) .num {
+  color: var(--color-mineral);
+}
+:global(.bg-porcelain) .step:global(.is-active) .num,
+:global(.bg-white) .step:global(.is-active) .num,
+:global(.bg-mist) .step:global(.is-active) .num {
+  color: var(--color-cobalt);
+}
+.step:global(.is-active) .dot {
+  background: var(--color-mineral);
+}
+:global(.bg-porcelain) .step:global(.is-active) .dot,
+:global(.bg-white) .step:global(.is-active) .dot,
+:global(.bg-mist) .step:global(.is-active) .dot {
+  background: var(--color-cobalt);
+}
+.step:global(.is-active) .marker {
+  transform: scale(1.25);
+}
+
+/* Horizontal layout on wide screens */
+@media (min-width: 1024px) {
+  .steps:not(.vertical) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+    padding-left: 0;
+    padding-top: 2.75rem;
+  }
+  .steps:not(.vertical) .track {
+    left: 0;
+    right: 0;
+    top: 5px;
+    bottom: auto;
+    width: auto;
+    height: 1px;
+  }
+  .steps:not(.vertical) .fill {
+    transform-origin: left;
+    transform: scaleX(var(--progress));
+  }
+  .steps:not(.vertical) .marker {
+    left: 0;
+    top: -2.75rem;
+  }
+  .vertical {
+    padding-left: 3rem;
+  }
+  .vertical .marker {
+    left: -3rem;
+  }
+}

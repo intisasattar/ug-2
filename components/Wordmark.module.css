@@ -1,0 +1,32 @@
+.mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-ink);
+  line-height: 1;
+  white-space: nowrap;
+}
+.light {
+  color: var(--color-white);
+}
+.ug {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.bar {
+  width: 1px;
+  height: 1.25rem;
+  background: var(--color-cobalt);
+}
+.light .bar {
+  background: var(--color-mineral);
+}
+.global {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}

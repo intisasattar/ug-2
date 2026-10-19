@@ -1,0 +1,98 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: calc(var(--header-h) + clamp(4rem, 2rem + 8vw, 9rem)) 0 clamp(4rem, 2.5rem + 6vw, 8rem);
+}
+.home {
+  min-height: min(100svh, 980px);
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: clamp(4rem, 2.5rem + 6vw, 7.5rem);
+}
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-7);
+}
+.copy {
+  max-width: 60rem;
+}
+.title {
+  font-size: var(--fs-3xl);
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  color: var(--color-white);
+  max-width: 18ch;
+}
+.home .title {
+  font-size: var(--fs-display);
+  max-width: 14ch;
+}
+.rule {
+  display: block;
+  width: 96px;
+  height: 1px;
+  margin: clamp(1.75rem, 1.2rem + 1.5vw, 2.5rem) 0;
+  background: var(--color-cobalt);
+  transform-origin: left center;
+}
+.lede {
+  max-width: 58ch;
+  font-size: var(--fs-md);
+  line-height: 1.65;
+  color: rgba(245, 243, 238, 0.84);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+.motif {
+  position: absolute;
+  top: 8%;
+  right: -10%;
+  width: min(70vw, 620px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.hero::before {
+  /* soft vignette to keep text legible over the motif */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(120% 90% at 0% 100%, rgba(23, 27, 36, 0.92) 30%, rgba(23, 27, 36, 0) 75%);
+  pointer-events: none;
+}
+:global(.bg-navy).hero::before {
+  background: radial-gradient(120% 90% at 0% 100%, rgba(36, 59, 100, 0.95) 30%, rgba(36, 59, 100, 0) 75%);
+}
+.aside {
+  font-size: var(--fs-sm);
+  color: var(--text-on-dark-muted);
+}
+
+@media (min-width: 1024px) {
+  .motif {
+    right: 2%;
+    top: 12%;
+    width: min(42vw, 560px);
+    opacity: 0.7;
+  }
+  .inner {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+  .aside {
+    max-width: 22rem;
+  }
+}
+@media (max-width: 640px) {
+  .motif {
+    opacity: 0.25;
+    right: -30%;
+    width: 110vw;
+  }
+}

@@ -1,0 +1,39 @@
+.motif {
+  width: 100%;
+  height: auto;
+  color: var(--color-mineral);
+}
+.lines path {
+  opacity: 0.38;
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 0;
+}
+.accent {
+  color: var(--color-cobalt);
+  opacity: 0.9;
+  stroke-dasharray: 700;
+}
+
+:global(.js-motion) .lines path {
+  stroke-dashoffset: 1400;
+  animation: draw 2.4s var(--ease-in-out) forwards;
+  animation-delay: calc(0.25s + var(--d, 0) * 0.06s);
+}
+:global(.js-motion) .accent {
+  stroke-dashoffset: 700;
+  animation: draw 1.6s var(--ease-in-out) 0.9s forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lines path,
+  .accent {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

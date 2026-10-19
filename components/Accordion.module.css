@@ -1,0 +1,103 @@
+.accordion {
+  border-top: 1px solid var(--border-strong);
+}
+.item {
+  border-bottom: 1px solid var(--border-strong);
+}
+:global(.bg-ink) .accordion,
+:global(.bg-ink) .item,
+:global(.bg-navy) .accordion,
+:global(.bg-navy) .item {
+  border-color: var(--border-dark);
+}
+.heading {
+  margin: 0;
+  font-size: inherit;
+}
+.trigger {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: var(--space-5);
+  width: 100%;
+  padding: 1.4rem 0;
+  background: none;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+  color: inherit;
+}
+.num {
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+:global(.bg-ink) .num,
+:global(.bg-navy) .num {
+  color: var(--color-mineral);
+}
+.q {
+  font-family: var(--font-serif);
+  font-size: var(--fs-lg);
+  line-height: 1.3;
+  color: var(--text-strong);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+:global(.bg-ink) .q,
+:global(.bg-navy) .q {
+  color: var(--color-white);
+}
+.trigger:hover .q {
+  color: var(--color-cobalt-deep);
+}
+:global(.bg-ink) .trigger:hover .q,
+:global(.bg-navy) .trigger:hover .q {
+  color: var(--color-mineral);
+}
+.icon {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  align-self: center;
+}
+.icon::before,
+.icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.icon::after {
+  transform: rotate(90deg);
+}
+.open .icon::after {
+  transform: rotate(0deg);
+}
+.panel {
+  padding: 0 0 1.6rem calc(var(--space-5) + 1.6rem);
+  max-width: 68ch;
+  color: var(--text-muted);
+  animation: open var(--dur-slow) var(--ease-out);
+}
+:global(.bg-ink) .panel,
+:global(.bg-navy) .panel {
+  color: var(--text-on-dark-muted);
+}
+@keyframes open {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+@media (max-width: 560px) {
+  .panel {
+    padding-left: 0;
+  }
+}

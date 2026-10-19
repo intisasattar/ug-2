@@ -1,0 +1,45 @@
+.panel {
+  overflow: hidden;
+}
+.inner {
+  position: relative;
+  z-index: 1;
+}
+.title {
+  font-size: var(--fs-3xl);
+  line-height: 1.06;
+  max-width: 16ch;
+}
+.body {
+  margin-top: var(--space-6);
+  max-width: 56ch;
+  font-size: var(--fs-md);
+  color: var(--text-on-dark-muted);
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-5) var(--space-6);
+  margin-top: var(--space-7);
+}
+.micro {
+  max-width: 38ch;
+  font-size: var(--fs-sm);
+  color: var(--text-on-dark-muted);
+}
+.motif {
+  position: absolute;
+  right: -6%;
+  bottom: -18%;
+  width: min(46vw, 460px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+@media (max-width: 720px) {
+  .motif {
+    opacity: 0.22;
+    width: 70vw;
+    right: -20%;
+  }
+}

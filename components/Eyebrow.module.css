@@ -1,0 +1,22 @@
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0 0 var(--space-5);
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-cobalt-deep);
+}
+:global(.bg-ink) .eyebrow,
+:global(.bg-navy) .eyebrow {
+  color: var(--color-mineral);
+}
+.tick {
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  flex: none;
+}

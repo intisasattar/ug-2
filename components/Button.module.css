@@ -1,0 +1,136 @@
+.btn {
+  --btn-pad-y: 0.95rem;
+  --btn-pad-x: 1.5rem;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 48px;
+  padding: var(--btn-pad-y) var(--btn-pad-x);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out),
+    background-color var(--dur-base) var(--ease-out);
+}
+
+.lg {
+  --btn-pad-y: 1.1rem;
+  --btn-pad-x: 1.85rem;
+  font-size: 1rem;
+}
+
+/* Fill sweep */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 520ms var(--ease-out);
+}
+.btn:hover::before {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.label {
+  position: relative;
+}
+
+.arrow {
+  flex: none;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.btn:hover .arrow {
+  transform: translateX(4px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Primary */
+.primary {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+.primary::before {
+  background: var(--color-navy);
+}
+.primary.onDark::before {
+  background: var(--color-white);
+}
+.primary.onDark:hover {
+  color: var(--color-ink);
+}
+
+/* Secondary (outline) */
+.secondary {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-ink);
+}
+.secondary::before {
+  background: var(--color-ink);
+}
+.secondary:hover {
+  color: var(--color-white);
+}
+.secondary.onDark {
+  color: var(--color-white);
+  border-color: rgba(245, 243, 238, 0.45);
+}
+.secondary.onDark::before {
+  background: var(--color-porcelain);
+}
+.secondary.onDark:hover {
+  color: var(--color-ink);
+  border-color: var(--color-porcelain);
+}
+
+/* Ghost (text-style CTA) */
+.ghost {
+  padding-inline: 0;
+  min-height: 44px;
+  color: var(--text-link);
+  background: none;
+}
+.ghost::before {
+  display: none;
+}
+.ghost .label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.ghost:hover .label::after {
+  transform: scaleX(0.35);
+}
+.ghost.onDark {
+  color: var(--color-mineral);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn::before {
+    transition: none;
+  }
+}

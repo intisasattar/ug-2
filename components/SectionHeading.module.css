@@ -1,0 +1,27 @@
+.head {
+  display: grid;
+  gap: var(--space-5);
+  margin-bottom: clamp(2.5rem, 1.5rem + 3vw, 4.5rem);
+}
+.title {
+  max-width: 20ch;
+}
+.intro {
+  max-width: var(--measure);
+  font-size: var(--fs-md);
+  color: var(--text-muted);
+}
+:global(.bg-ink) .intro,
+:global(.bg-navy) .intro {
+  color: var(--text-on-dark-muted);
+}
+@media (min-width: 960px) {
+  .split {
+    grid-template-columns: 7fr 5fr;
+    align-items: end;
+    gap: var(--space-8);
+  }
+  .split .intro {
+    padding-bottom: 0.4rem;
+  }
+}

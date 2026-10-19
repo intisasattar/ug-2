@@ -1,0 +1,123 @@
+.routes {
+  padding-top: clamp(2.5rem, 2rem + 3vw, 4.5rem);
+}
+.routeGrid {
+  display: grid;
+  gap: var(--space-4);
+}
+@media (min-width: 860px) {
+  .routeGrid {
+    grid-template-columns: 3fr 2fr;
+  }
+}
+.route {
+  display: grid;
+  gap: var(--space-4);
+  padding: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-white);
+  color: var(--text-strong);
+  text-decoration: none;
+  transition: transform var(--dur-slow) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+}
+.route:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-slate);
+}
+.routePrimary {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+  color: var(--color-white);
+}
+.routePrimary:hover {
+  border-color: var(--color-cobalt);
+}
+.routeKicker {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-cobalt-deep);
+}
+.routePrimary .routeKicker {
+  color: var(--color-mineral);
+}
+.routeTitle {
+  font-family: var(--font-serif);
+  font-size: var(--fs-xl);
+  line-height: 1.25;
+}
+.routeGo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-cobalt);
+}
+.routePrimary .routeGo {
+  color: var(--color-mineral);
+}
+.routeGo svg {
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.route:hover .routeGo svg {
+  transform: translateX(4px);
+}
+
+.formLayout {
+  display: grid;
+  gap: var(--space-7);
+}
+@media (min-width: 1040px) {
+  .formLayout {
+    grid-template-columns: 4fr 7fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+  .formIntro {
+    position: sticky;
+    top: calc(var(--header-h-compact) + 2rem);
+  }
+}
+.formIntro h2 {
+  font-size: var(--fs-2xl);
+}
+.secondaryTitle {
+  font-size: var(--fs-xl) !important;
+}
+.introCopy {
+  margin-top: var(--space-5);
+  color: var(--text-muted);
+  max-width: 46ch;
+}
+.expect {
+  list-style: none;
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--border-strong);
+  font-size: var(--fs-sm);
+}
+.expect li {
+  position: relative;
+  padding-left: 1.6rem;
+}
+.expect li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 0.9rem;
+  height: 1px;
+  background: var(--color-cobalt);
+}
+.formCard {
+  padding: clamp(1.25rem, 0.8rem + 2.5vw, 3rem);
+  background: var(--color-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  min-width: 0;
+}

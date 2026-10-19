@@ -1,0 +1,116 @@
+.supporting {
+  margin-top: var(--space-5);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-lg);
+  color: var(--color-mineral);
+}
+
+.servicesFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin-top: var(--space-7);
+}
+.boundary {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 62ch;
+  padding-left: var(--space-5);
+  border-left: 2px solid var(--color-cobalt);
+  font-size: 0.97rem;
+  color: var(--text-muted);
+}
+
+.results {
+  overflow: hidden;
+}
+.resultsGrid {
+  display: grid;
+  gap: var(--space-7);
+}
+@media (min-width: 960px) {
+  .resultsGrid {
+    grid-template-columns: 6fr 5fr;
+    gap: var(--space-9);
+    align-items: end;
+  }
+}
+.resultsCopy {
+  font-size: var(--fs-md);
+  color: var(--text-on-dark-muted);
+  max-width: 54ch;
+}
+.evidence {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin-top: var(--space-6);
+  background: var(--border-dark);
+  border: 1px solid var(--border-dark);
+}
+.evidence li {
+  padding: 1rem 1.1rem;
+  background: var(--color-ink);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--color-porcelain);
+}
+.evidence li::before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 1px;
+  margin-bottom: 0.65rem;
+  background: var(--color-mineral);
+}
+
+.standardsTitle {
+  font-size: var(--fs-3xl);
+  line-height: 1.06;
+  max-width: 16ch;
+}
+.standardsCopy {
+  margin: var(--space-6) 0 var(--space-5);
+  font-family: var(--font-serif);
+  font-size: var(--fs-lg);
+  line-height: 1.55;
+  color: var(--text-body);
+}
+
+.careers {
+  border-top: 1px solid var(--border-light);
+}
+.careersInner {
+  display: grid;
+  gap: var(--space-6);
+  padding: clamp(2rem, 1.5rem + 2vw, 3.5rem);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  background: var(--color-porcelain);
+}
+@media (min-width: 960px) {
+  .careersInner {
+    grid-template-columns: 5fr 6fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+}
+.careersTitle {
+  font-size: var(--fs-xl);
+  max-width: 20ch;
+}
+.careersBody {
+  display: grid;
+  gap: var(--space-4);
+  font-size: 0.98rem;
+}
+.careersBody p + p {
+  margin-top: 0;
+}
+.careersCta {
+  margin-top: var(--space-3);
+}
